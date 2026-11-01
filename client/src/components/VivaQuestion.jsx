@@ -48,9 +48,9 @@ export default function VivaQuestion() {
   };
 
   return (
-    <main className="min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-950 text-white p-8">
-      <section className="max-w-3xl mx-auto bg-gradient-to-br from-[#1b1b3a] to-[#2c2c5c] p-10 rounded-3xl shadow-2xl">
-        <h1 className="text-3xl font-bold mb-8 text-center">🧠 Viva on {state.topic}</h1>
+    <main className="min-h-[calc(100dvh-64px)] bg-gradient-to-br from-gray-900 via-black to-gray-950 p-4 text-white sm:p-8">
+      <section className="mx-auto max-w-3xl rounded-3xl bg-gradient-to-br from-[#1b1b3a] to-[#2c2c5c] p-5 shadow-2xl sm:p-10">
+        <h1 className="mb-8 break-words text-center text-2xl font-bold sm:text-3xl">🧠 Viva on {state.topic}</h1>
         <form onSubmit={handleSubmit} className="space-y-8">
           {state.questions.map((question, index) => (
             <div key={question} className="space-y-3">
@@ -60,10 +60,10 @@ export default function VivaQuestion() {
                   rows="3"
                   value={answers[index] || ""}
                   onChange={(event) => setAnswers((current) => ({ ...current, [index]: event.target.value }))}
-                  className="flex-1 p-3 rounded-xl bg-gray-800 text-white border border-gray-700 focus:ring-2 focus:ring-indigo-500 outline-none"
+                  className="min-w-0 flex-1 rounded-xl border border-gray-700 bg-gray-800 p-3 text-white outline-none focus:ring-2 focus:ring-indigo-500"
                   placeholder="Your answer…"
                 />
-                <button type="button" onClick={() => recordAnswer(index)} className={`w-12 h-12 grid place-items-center rounded-full ${recordingIndex === index ? "bg-red-500 animate-pulse" : "bg-green-600"}`}>
+                <button type="button" onClick={() => recordAnswer(index)} className={`grid h-12 w-12 shrink-0 place-items-center rounded-full ${recordingIndex === index ? "bg-red-500 animate-pulse" : "bg-green-600"}`}>
                   {recordingIndex === index ? <FaMicrophoneSlash /> : <FaMicrophone />}
                 </button>
               </div>

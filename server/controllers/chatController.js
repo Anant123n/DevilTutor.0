@@ -6,7 +6,7 @@ const maxHistoryItems = 12;
 export const askTutor = async (req, res) => {
   try {
     const question = req.body?.question?.trim();
-    const sessionId = String(req.body?.sessionId || "default");
+    const sessionId = `${req.userId}:${String(req.body?.sessionId || "default")}`;
 
     if (!question) {
       return res.status(400).json({ error: "Please provide a question." });

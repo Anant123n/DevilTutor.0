@@ -15,36 +15,36 @@ export default function Home() {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-950 text-white font-inter flex flex-col items-center p-8">
-      <nav className="w-full max-w-6xl flex justify-end gap-3 mb-6">
+    <div className="flex min-h-[calc(100dvh-64px)] flex-col items-center bg-gradient-to-br from-gray-900 via-black to-gray-950 p-4 font-inter text-white sm:p-8">
+      <nav className="mb-6 flex w-full max-w-6xl flex-wrap justify-center gap-2 sm:justify-end sm:gap-3">
         <Link
           to="/pdf-tutor"
-          className="px-5 py-2 rounded-full font-semibold bg-gray-800 hover:bg-gray-700 text-white shadow-md"
+          className="rounded-full bg-gray-800 px-4 py-2 text-center text-sm font-semibold text-white shadow-md hover:bg-gray-700 sm:px-5 sm:text-base"
         >
           📄 Ask a PDF
         </Link>
         <Link
           to="/viva"
-          className="px-5 py-2 rounded-full font-semibold bg-gradient-to-r from-indigo-600 to-purple-700 text-white hover:opacity-90 shadow-md"
+          className="rounded-full bg-gradient-to-r from-indigo-600 to-purple-700 px-4 py-2 text-center text-sm font-semibold text-white shadow-md hover:opacity-90 sm:px-5 sm:text-base"
         >
           🎤 Personalized Viva
         </Link>
       </nav>
 
-      <h1 className="text-4xl md:text-5xl font-bold mb-10 text-center bg-gradient-to-r from-indigo-400 via-purple-500 to-pink-400 bg-clip-text text-transparent drop-shadow-md">
+      <h1 className="mb-8 bg-gradient-to-r from-indigo-400 via-purple-500 to-pink-400 bg-clip-text text-center text-3xl font-bold text-transparent drop-shadow-md sm:mb-10 sm:text-4xl md:text-5xl">
         Choose Your AI Tutor
       </h1>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 w-full max-w-6xl">
+      <div className="grid w-full max-w-6xl grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3 lg:gap-8">
         {teachers.map((teacher, idx) => (
           <div
             key={idx}
             onClick={() => navigate(teacher.path)}
-            className="group relative bg-gradient-to-br from-[#1b1b2f] to-[#2b2b45] p-8 rounded-3xl shadow-2xl cursor-pointer transition-all duration-300 transform hover:-translate-y-2 hover:shadow-indigo-700/40"
+            className="group relative cursor-pointer rounded-3xl bg-gradient-to-br from-[#1b1b2f] to-[#2b2b45] p-5 shadow-2xl transition-all duration-300 hover:-translate-y-2 hover:shadow-indigo-700/40 sm:p-8"
           >
             <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/20 to-purple-500/10 opacity-0 group-hover:opacity-100 transition-opacity rounded-3xl"></div>
             <div className="relative flex flex-col items-center text-center space-y-4">
-              <div className="w-20 h-20 rounded-full bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center text-2xl font-bold shadow-lg">
+              <div className="flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-br from-indigo-500 to-purple-600 text-2xl font-bold shadow-lg sm:h-20 sm:w-20">
                 {teacher.name.split(" ")[0][0]}
               </div>
               <h2 className="text-xl md:text-2xl font-semibold">{teacher.name}</h2>

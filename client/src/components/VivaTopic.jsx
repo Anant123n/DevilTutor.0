@@ -27,10 +27,10 @@ export default function VivaTopic() {
   };
 
   return (
-    <main className="min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-950 text-white grid place-items-center p-6">
-      <section className="bg-gradient-to-br from-[#1b1b3a] to-[#2c2c5c] rounded-3xl shadow-2xl p-10 w-full max-w-lg">
+    <main className="grid min-h-[calc(100dvh-64px)] place-items-center bg-gradient-to-br from-gray-900 via-black to-gray-950 p-4 text-white sm:p-6">
+      <section className="w-full max-w-lg rounded-3xl bg-gradient-to-br from-[#1b1b3a] to-[#2c2c5c] p-6 shadow-2xl sm:p-10">
         <Link to="/" className="text-indigo-300 hover:text-indigo-200">← Home</Link>
-        <h1 className="text-3xl font-bold my-6 text-center">🎓 AI Viva Assistant</h1>
+        <h1 className="my-6 text-center text-2xl font-bold sm:text-3xl">🎓 AI Viva Assistant</h1>
         <form onSubmit={handleSubmit} className="space-y-5">
           <label className="block text-lg font-medium" htmlFor="topic">Enter your viva topic</label>
           <input

@@ -1,5 +1,22 @@
 @import "tailwindcss";
 
+body {
+  overflow-x: hidden;
+}
+
+.camera-preview {
+  right: 1rem;
+  top: 1rem;
+}
+
+@media (min-width: 768px) {
+  .camera-preview {
+    left: var(--camera-left);
+    right: auto;
+    top: var(--camera-top);
+  }
+}
+
 .markdown-message p {
   margin: 0.35rem 0;
 }

@@ -4,11 +4,12 @@ This is the Node-only copy of DevilTutor. The previous Flask, LangChain, Python 
 
 ## Features
 
-- AI tutor chat with per-browser conversation memory
+- AI tutor chat with per-user conversation memory
 - AI viva question generation and answer evaluation
 - PDF upload and document Q&A
 - Browser speech recognition and text-to-speech
 - React/Vite frontend connected to one Express API
+- MongoDB Atlas signup and login with protected learning APIs
 
 ## Run locally
 
@@ -18,7 +19,7 @@ Create the local environment file and add a valid Gemini API key:
 cp server/.env.example server/.env
 ```
 
-Then replace `your_gemini_api_key` in `server/.env`. Credentials are intentionally excluded from this copy.
+Then replace `your_gemini_api_key`, `MONGO_URI`, and `JWT_SECRET` in `server/.env`. The MongoDB URI must point to the `DevilTutor` database; user records go into the `deviltutor_users` collection. Credentials are intentionally excluded from this repository.
 
 ```bash
 cd server
@@ -50,8 +51,11 @@ Express serves `client/dist`, so only the Node server is required after the fron
 ## API routes
 
 - `GET /api/health`
-- `POST /api/chat`
-- `POST /api/viva/questions`
-- `POST /api/viva/evaluate`
-- `POST /api/rag/upload` (multipart field: `pdf`)
-- `POST /api/rag/ask`
+- `POST /api/users/register`
+- `POST /api/users/login`
+- `GET /api/users/me` (authenticated)
+- `POST /api/chat` (authenticated)
+- `POST /api/viva/questions` (authenticated)
+- `POST /api/viva/evaluate` (authenticated)
+- `POST /api/rag/upload` (authenticated, multipart field: `pdf`)
+- `POST /api/rag/ask` (authenticated)

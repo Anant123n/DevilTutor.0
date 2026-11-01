@@ -3,7 +3,7 @@ import { generateText } from "../services/geminiService.js";
 const documents = new Map();
 
 export function uploadPdf(req, res) {
-  const sessionId = String(req.body?.sessionId || "default");
+  const sessionId = `${req.userId}:${String(req.body?.sessionId || "default")}`;
   if (!req.file) return res.status(400).json({ error: "Please upload a PDF in the 'pdf' field." });
   if (req.file.mimetype !== "application/pdf") {
     return res.status(400).json({ error: "Only PDF files are supported." });
@@ -18,7 +18,7 @@ export function uploadPdf(req, res) {
 
 export async function askDocument(req, res) {
   try {
-    const sessionId = String(req.body?.sessionId || "default");
+    const sessionId = `${req.userId}:${String(req.body?.sessionId || "default")}`;
     const question = req.body?.question?.trim();
     const document = documents.get(sessionId);
     if (!document) return res.status(400).json({ error: "Please upload a PDF first." });
